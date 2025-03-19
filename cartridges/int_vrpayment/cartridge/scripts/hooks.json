@@ -1,0 +1,12 @@
+{
+  "hooks": [
+    {
+      "name": "app.payment.processor.vrpayment",
+      "script": "./hooks/payment/processor/vrpayment"
+    },
+    {
+      "name": "app.payment.form.processor.vrpayment",
+      "script": "./hooks/payment/processor/vrpayment"
+    }
+  ]
+}

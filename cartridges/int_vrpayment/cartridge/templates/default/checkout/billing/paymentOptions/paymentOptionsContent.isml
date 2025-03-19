@@ -1,0 +1,8 @@
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" status="loopState" var="paymentOption">
+	<isif condition="${paymentOption.ID === 'VRPAYMENT'}">
+		<isloop items="${pdict.vrpayment.transactionPossiblePaymentMethods}" status="loopState" var="transactionPossiblePaymentMethod">
+			<isinclude template="vrpayment/checkout/billing/paymentOptions/vRPaymentContent" /></isloop>
+	</isif>
+</isloop>
+
+<isinclude template="checkout/billing/paymentOptions/creditCardContent" />

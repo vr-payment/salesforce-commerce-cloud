@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-objects xmlns="http://www.demandware.com/xml/impex/customobject/2006-10-31">
+    <custom-object type-id="VRPayment_Common" object-id="vrpayment_common">
+        <object-attribute attribute-id="spaceId"></object-attribute>
+        <object-attribute attribute-id="userId"></object-attribute>
+        <object-attribute attribute-id="apiSecret"></object-attribute>
+        <object-attribute attribute-id="integrationType"></object-attribute>
+        <object-attribute attribute-id="webHookContent"></object-attribute>
+        <object-attribute attribute-id="webHookIsEnabled">false</object-attribute>
+    </custom-object>
+</custom-objects>

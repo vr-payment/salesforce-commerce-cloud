@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="keywords" value="VRPay, Salesforce Commerce Cloud, Payment, Payment Integration, Documentation"><meta name="description" value="The documentation for the Salesforce Commerce Cloud extension that enables processing payments with VRPay.">		
+		<link rel="canonical" href="https://plugin-documentation.wallee.com/wallee-payment/salesforce-commerce-cloud/master/docs/en/documentation.html" />
+		<title>VRPay Salesforce Commerce Cloud (SFCC)</title>
+		<link href="assets/monokai-sublime.css" rel="stylesheet" />
+		<link href="assets/base.css" rel="stylesheet" />
+	</head>
+	<body class="documentation">
+		<div class="layout-wrapper">
+							<div class="layout-title">
+					<h1>VRPay Salesforce Commerce Cloud (SFCC)</h1>
+<h2>Documentation</h2>				</div>
+										<div class="layout-navigation">
+					<ul class="nav">
+	<li>
+		<a href="https://gateway.vr-payment.de/user/login">
+			Sign Up
+		</a>
+	</li>
+	<li>
+		<a href="https://github.com/vr-payment/salesforce-commerce-cloud/releases/tag/1.0.16/">
+			Source
+		</a>
+	</li>
+</ul>				</div>
+										<div class="layout-content">
+												<div class="col-body">
+							<div class="col-body-wrapper">
+																	<div class="body-container">
+																						<div class="chapter" id="_installation">
+	<div class="chapter-title">
+		<h1>
+			<span class="title-number">1</span>Installation					</h1>
+	</div>
+	<div class="chapter-body">
+							<div class="section" id="_download">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">1.1</span>Download					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>Please download the latest zip or tar.gz file from the releases in our <a href="https://github.com/vr-payment/salesforce-commerce-cloud/releases">releases page</a>.</p>
+</div>					</div>
+</div>					<div class="section" id="_preparation">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">1.2</span>Preparation					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>Unzip the file in your local computer. You need to rename a couple of directories inside it:</p>
+</div><div class="ulist">
+<ul>
+<li>
+<p><em>metadata/sites/yourSiteId</em>: Rename the yourSiteId with your site id. You can find this on the top left of the administration page of your SFCC instance.</p>
+</li>
+</ul>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/SiteSelector.png" alt="SiteSelector"/>
+</div>
+</div><div class="ulist">
+<ul>
+<li>
+<p><em>cartridges</em>: rename the <strong>cartridges</strong> folder with the name of the code version you are using for your site. You can find the code version in <strong>Administration &gt; Site Development &gt; Code Deployment</strong></p>
+</li>
+</ul>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/CodeVersionPanel.png" alt="CodeVersionPanel"/>
+</div>
+</div><div class="paragraph">
+<p>Then you need to zip the files again for uploading it to SFCC.</p>
+</div><div class="ulist">
+<ul>
+<li>
+<p>zip the metadata folder only:</p>
+</li>
+</ul>
+</div><div class="listingblock">
+<div class="content">
+<pre>zip -r metadata.zip metadata</pre>
+</div>
+</div><div class="ulist">
+<ul>
+<li>
+<p>zip the cartridges folder:</p>
+</li>
+</ul>
+</div><div class="listingblock">
+<div class="content">
+<pre>zip -r code_version.zip CODE-VERSION/</pre>
+</div>
+</div>					</div>
+</div>					<div class="section" id="_uploading_the_cartridges_and_the_metadata">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">1.3</span>Uploading the cartridges and the metadata					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>You need to upload the metadata in
+<strong>Administration &gt; Site Development &gt; Site Import &amp; Export</strong>
+Use the Upload Archive functionality for uploading the metadata.zip file you generated in the previous step.</p>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/MetadataUploadFile.png" alt="MetadataUploadFile"/>
+</div>
+</div><div class="paragraph">
+<p>Select your uploaded file from the list and click in the <strong>Import</strong> button.</p>
+</div><div class="paragraph">
+<p>You need to upload the cartridges using the sfcc-ci tool. Please refer to its <a href="https://github.com/SalesforceCommerceCloud/sfcc-ci">documentation</a> in order to configure it properly, especially about authentication.</p>
+</div><div class="paragraph">
+<p>Then, run this command for upload the cartridges:</p>
+</div><div class="listingblock">
+<div class="content">
+<pre>sfcc-ci code:deploy code_version.zip</pre>
+</div>
+</div>					</div>
+</div>			</div>
+</div>	<div class="chapter" id="_configuration">
+	<div class="chapter-title">
+		<h1>
+			<span class="title-number">2</span>Configuration					</h1>
+	</div>
+	<div class="chapter-body">
+							<div class="section" id="_enable_the_cartridges">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">2.1</span>Enable the cartridges					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>Go to <strong>Administration &gt; Sites &gt; Manage Sites</strong>.</p>
+</div><div class="paragraph">
+<p>For each of the sites you want to enable the cartridge, open its Settings and, in the Cartridge field, input (without quotes) "int_vrpayment:".</p>
+</div><div class="paragraph">
+<p>Save the configuration by clicking on the Apply button.</p>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/EnableIntCartridge.png" alt="EnableIntCartridge"/>
+</div>
+</div><div class="paragraph">
+<p>Now click on <strong>Business Manager Site</strong>, and go to its settings.</p>
+</div><div class="paragraph">
+<p>Again, in the Cartridges field input (without quotes) "bm_vrpayment:".</p>
+</div><div class="paragraph">
+<p>Save the configuration by clicking on the Apply button.</p>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/EnableBmCartridge.png" alt="EnableBmCartridge"/>
+</div>
+</div>					</div>
+</div>					<div class="section" id="_add_permissions_to_the_administrator_role">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">2.2</span>Add permissions to the Administrator role					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>Go to <strong>Administration &gt; Organization &gt; Roles &amp; Permissions</strong></p>
+</div><div class="paragraph">
+<p>Click on the Administrator role.</p>
+</div><div class="paragraph">
+<p>Click on the Business Manager Modules tab.</p>
+</div><div class="paragraph">
+<p>Under the Site Preferences section, localize the VRPayment option.</p>
+</div><div class="paragraph">
+<p>Check the checkbox for the Write columnd of the VRPayment row.</p>
+</div><div class="paragraph">
+<p>At the bottom of the page, click on the Update button.</p>
+</div>					</div>
+</div>					<div class="section" id="_configure_the_vrpayment_settings">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">2.3</span>Configure the VRPayment settings					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>Go to <strong>Merchant Tools &gt; Site Preferences &gt; VRPayment</strong>.</p>
+</div><div class="paragraph">
+<p>Input the settings provided given to you by VRPayment for the <strong>Space ID</strong>, <strong>User ID</strong> and <strong>API Secret</strong>.</p>
+</div><div class="paragraph">
+<p>Click on Apply button.</p>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/PluginSettings.png" alt="PluginSettings"/>
+</div>
+</div>					</div>
+</div>					<div class="section" id="_set_up_the_payment_methods">
+	<div class="section-title">
+		<h2>
+			<span class="title-number">2.4</span>Set up the payment methods					</h2>
+	</div>
+	<div class="section-body">
+					<div class="paragraph">
+<p>So far, in order to use the payment methods provided by VRPayment you need to disable other payment methods available in your SFCC instance.</p>
+</div><div class="paragraph">
+<p>Go to <strong>Merchant Tools &gt; Ordering &gt; Payment Methods</strong>.</p>
+</div><div class="paragraph">
+<p>For each of the payment methods available, except the entry for VRPayment, disable them using the panel.</p>
+</div><div class="imageblock">
+<div class="content">
+<img src="resource/PaymentMethods.png" alt="PaymentMethods"/>
+</div>
+</div>					</div>
+</div>			</div>
+</div>	<div class="chapter" id="_order_and_payment_statuses">
+	<div class="chapter-title">
+		<h1>
+			<span class="title-number">3</span>Order and Payment Statuses					</h1>
+	</div>
+	<div class="chapter-body">
+					<div class="imageblock">
+<div class="content">
+<img src="resource/SFCC-Order-Statuses.svg" alt="SFCC Order Statuses"/>
+</div>
+</div><div class="olist glossary">
+<ol class="glossary">
+<li>
+<p><strong>Transaction successful</strong>: the order status in SFCC will be marked as Open and the payment status will be marked as Paid.</p>
+</li>
+<li>
+<p><strong>Transaction authorized</strong>: the order status in SFCC will be marked as Open and the payment status will be marked as Not Paid.</p>
+</li>
+<li>
+<p><strong>Transaction completed</strong>: After the transaction has been authorized, the merchant can complete the transaction. Then the order status will be marked
+as Open and the payment status will be marked as Paid.</p>
+</li>
+<li>
+<p><strong>Transaction failed</strong>: the order status in SFCC will be marked as Canceled, and the payment status will be marked as Not Paid.</p>
+</li>
+<li>
+<p><strong>Transaction refunded</strong>: After the transaction has been completed or successful, the merchant can refund the transaction. Then the order status will be
+marked as Canceled and the payment status will be marked as Not Paid.</p>
+</li>
+</ol>
+</div>					</div>
+</div>																			</div>
+															</div>
+						</div>
+						<div class="col-right">
+		<div class="col-right-wrapper">
+							<div class="table-of-contents">
+	<ul class="nav">
+					<li class="nav-level-1">
+	<a href="#_installation">
+		<span class="item-number">1</span>
+		<span class="item-title">Installation</span>
+			</a>
+        	<ul  class="nav">
+    		    			<li class="nav-level-2">
+	<a href="#_download">
+		<span class="item-number">1.1</span>
+		<span class="item-title">Download</span>
+			</a>
+    </li>    		    			<li class="nav-level-2">
+	<a href="#_preparation">
+		<span class="item-number">1.2</span>
+		<span class="item-title">Preparation</span>
+			</a>
+    </li>    		    			<li class="nav-level-2">
+	<a href="#_uploading_the_cartridges_and_the_metadata">
+		<span class="item-number">1.3</span>
+		<span class="item-title">Uploading the cartridges and the metadata</span>
+			</a>
+    </li>    		    	</ul>
+    </li>					<li class="nav-level-1">
+	<a href="#_configuration">
+		<span class="item-number">2</span>
+		<span class="item-title">Configuration</span>
+			</a>
+        	<ul  class="nav">
+    		    			<li class="nav-level-2">
+	<a href="#_enable_the_cartridges">
+		<span class="item-number">2.1</span>
+		<span class="item-title">Enable the cartridges</span>
+			</a>
+    </li>    		    			<li class="nav-level-2">
+	<a href="#_add_permissions_to_the_administrator_role">
+		<span class="item-number">2.2</span>
+		<span class="item-title">Add permissions to the Administrator role</span>
+			</a>
+    </li>    		    			<li class="nav-level-2">
+	<a href="#_configure_the_vrpayment_settings">
+		<span class="item-number">2.3</span>
+		<span class="item-title">Configure the VRPayment settings</span>
+			</a>
+    </li>    		    			<li class="nav-level-2">
+	<a href="#_set_up_the_payment_methods">
+		<span class="item-number">2.4</span>
+		<span class="item-title">Set up the payment methods</span>
+			</a>
+    </li>    		    	</ul>
+    </li>					<li class="nav-level-1">
+	<a href="#_order_and_payment_statuses">
+		<span class="item-number">3</span>
+		<span class="item-title">Order and Payment Statuses</span>
+			</a>
+    </li>			</ul>
+</div>					</div>
+	</div>
+				</div>
+					</div>
+
+		<script type="text/javascript" src="assets/jquery.js"></script>
+		<script type="text/javascript" src="assets/scrollspy.js"></script>
+		<script type="text/javascript" src="assets/sticky-kit.js"></script>
+		<script type="text/javascript" src="assets/highlight.js"></script>
+		<script type="text/javascript" src="assets/base.js"></script>
+	</body>
+</html>

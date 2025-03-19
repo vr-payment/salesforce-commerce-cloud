@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="VRPayment_Common">
+        <staging-mode>source-to-target</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="id">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="spaceId">
+                <display-name xml:lang="x-default">Space Id</display-name>
+                <description xml:lang="x-default">Space ID</description>
+                <type>int</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>1</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="userId">
+                <display-name xml:lang="x-default">User Id</display-name>
+                <description xml:lang="x-default">User Id</description>
+                <type>int</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="apiSecret">
+                <display-name xml:lang="x-default">API Secret</display-name>
+                <description xml:lang="x-default">API Secret</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>1</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="integrationType">
+                <display-name xml:lang="x-default">Integration Type</display-name>
+                <description xml:lang="x-default">Integration Type</description>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>1</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="webHookContent">
+                <display-name xml:lang="x-default">WebHook Response</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="webHookIsEnabled">
+                <display-name xml:lang="x-default">WebHook IsEnabled?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="general">
+                <attribute attribute-id="id"/>
+                <attribute attribute-id="spaceId"/>
+                <attribute attribute-id="userId"/>
+                <attribute attribute-id="apiSecret"/>
+                <attribute attribute-id="integrationType"/>
+                <attribute attribute-id="webHookContent"/>
+                <attribute attribute-id="webHookIsEnabled"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

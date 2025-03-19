@@ -1,0 +1,7 @@
+<isif condition="${transactionPossiblePaymentMethod.state === 'ACTIVE'}">
+    <li class="nav-item VRPAYMENT-nav-item-${transactionPossiblePaymentMethod.id}" data-method-id="VRPAYMENT">
+        <a class="nav-link vrpayment-tab" data-toggle="tab" href="${'#'}vrpayment-content-${transactionPossiblePaymentMethod.id}" role="tab" data-id="${transactionPossiblePaymentMethod.id}" title="${transactionPossiblePaymentMethod.name}">
+            <img alt="${transactionPossiblePaymentMethod.name}" class="credit-card-option" height="32" src="${transactionPossiblePaymentMethod.resolvedImageUrl}" title="${transactionPossiblePaymentMethod.name}">
+        </a>
+    </li>
+</isif>

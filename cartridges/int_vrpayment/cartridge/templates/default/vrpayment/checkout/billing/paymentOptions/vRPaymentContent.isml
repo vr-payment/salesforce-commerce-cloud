@@ -1,0 +1,10 @@
+<isif condition="${transactionPossiblePaymentMethod.state === 'ACTIVE'}">
+    <div class="tab-pane vrpayment-content vrpayment-content-${transactionPossiblePaymentMethod.id}" id="vrpayment-content-${transactionPossiblePaymentMethod.id}" data-id="${transactionPossiblePaymentMethod.id}" role="tabpanel">
+        <fieldset class="payment-form-fields">
+            <input type="hidden" class="form-control" name="VRPAYMENT_handler" value="">
+            <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}" value="VRPAYMENT">
+            <input type="hidden" class="form-control" name="VRPAYMENT_handler_name" value="${transactionPossiblePaymentMethod.name}">
+            <div id="vrpayment-form-${transactionPossiblePaymentMethod.id}"></div>
+        </fieldset>
+    </div>
+</isif>

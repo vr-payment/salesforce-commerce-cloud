@@ -1,0 +1,19 @@
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" status="loopState" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'VRPAYMENT'}">
+        <isscript>
+            var assets = require('*/cartridge/scripts/assets.js');
+            assets.addJs(pdict.vrpayment.javascriptUrl);
+            assets.addJs('/js/vrpayment.js');
+        </isscript>
+        <!-- VRPAYMENT Begin -->
+        <input type="hidden" class="form-control" name="VRPAYMENT_url" value="${dw.web.URLUtils.url('VRPayment-TransactionUpdate').toString()}">
+        <input type="hidden" class="form-control" name="VRPAYMENT_integrationType" value="${pdict.vrpayment.integrationType}">      
+        <isloop items="${pdict.vrpayment.transactionPossiblePaymentMethods}" status="loopState" var="transactionPossiblePaymentMethod">
+            <isinclude template="vrpayment/checkout/billing/paymentOptions/vRPaymentTab"/>
+        </isloop>
+        <!-- VRPAYMENT End -->
+    </isif>
+    <isif condition="${paymentOption.ID === 'CREDIT_CARD'}">
+        <isinclude template="checkout/billing/paymentOptions/creditCardTab"/>
+    </isif>
+</isloop>

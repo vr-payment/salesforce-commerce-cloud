@@ -1,0 +1,56 @@
+{
+  "author": "VR Payment GmbH, <ecommerce@vr-payment.de>",
+  "browserslist": [
+    "ie >= 10",
+    "last 2 versions"
+  ],
+  "description": "New overlay cartridge",
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "chai": "^4.2.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-es5": "^1.4.1",
+    "eslint-plugin-import": ">=2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^10.0.0",
+    "node-sass": "^9.0.0",
+    "postcss-loader": "^7.3.3",
+    "prettier": "1.19.1",
+    "proxyquire": "1.7.4",
+    "sass-loader": "^7.0.3",
+    "sgmf-scripts": "^3.0.0",
+    "sinon": "^1.17.4",
+    "stylelint": "^14.9.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-scss": "^3.11.1",
+    "tslint-lines-between-class-members": "^1.3.6",
+    "typescript": "^3.7.4",
+    "watch": "^0.13.0"
+  },
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "int_vrpayment",
+  "packageName": "int_vrpayment",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/vr-payment/salesforce-commerce-cloud.git"
+  },
+  "scripts": {
+    "build": "npm run compile:js && npm run build:tsc",
+    "build:eslint": "./node_modules/.bin/eslint ./cartridges/int_vrpayment/. --ext .js",
+    "build:tsc": "./node_modules/.bin/tsc -p ./tsconfig.json",
+    "build:upload": "rm -fr ./cartridges/int_vrpayment/* && cp -rf ./cartridges/int_vrpayment/* ./cartridges/int_vrpayment/",
+    "compile:js": "./node_modules/.bin/sgmf-scripts --compile js",
+    "compile:scss": "./node_modules/.bin/sgmf-scripts --compile css",
+    "lint": "./node_modules/.bin/sgmf-scripts --lint js && ./node_modules/.bin/sgmf-scripts --lint css",
+    "upload": "./node_modules/.bin/sgmf-scripts --upload -- ",
+    "uploadCartridge": "./node_modules/.bin/sgmf-scripts --uploadCartridge int_vrpayment",
+    "uploadCartridge2": "./node_modules/.bin/sgmf-scripts --uploadCartridge bm_vrpayment",
+    "watch": "watch 'npm run build' ./cartridges/"
+  },
+  "version": "1.0.0"
+}
