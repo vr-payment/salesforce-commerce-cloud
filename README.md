@@ -1,13 +1,13 @@
-# Salesforce Commerce Cloud VRPayment Cartridge
+# Salesforce Commerce Cloud VR Payment Cartridge
 
-VRPayment provides LINK cartridges to integrate with Salesforce Commerce Cloud (SFCC). These cartridges enable a SFRA storefront to use the VRPayment payment service. These cartridges support SFRA version 4.x.x.
+VR Payment provides LINK cartridges to integrate with Salesforce Commerce Cloud (SFCC). These cartridges enable a SFRA storefront to use the VR Payment payment service. These cartridges support SFRA version 4.x.x.
 
 ## Requirements
 
-It is required to have an VRPayment account to use these cartridges. Please signup [here](https://gateway.vr-payment.de/user/login).
+It is required to have an VR Payment account to use these cartridges. Please signup [here](https://gateway.vr-payment.de/user/login).
 
 ## Integration
-Our cartridges integrate the checkout process with VRPayment. Each of the steps below are required to get your VRPayment integration working. You need admin rights to the instance you are uploading these cartridges to.
+Our cartridges integrate the checkout process with VR Payment. Each of the steps below are required to get your VR Payment integration working. You need admin rights to the instance you are uploading these cartridges to.
 
 ### 1. Upload cartridge
 
@@ -35,7 +35,7 @@ Please rename the folder `yourSiteId` to the name of your site, and please repli
 
 
 ### 5. Apply credentials
-Have your VRPayment credentials handy.
+Have your VR Payment credentials handy.
 
 * Merchant Tools > Site Preferences > VRPayment
 
@@ -43,15 +43,15 @@ If the path `Merchant Tools > Site Preferences > VRPayment` does not exist, plea
 
 
 ### 6. Profit
-Congratulations! You are now integrated with VRPayment.
+Congratulations! You are now integrated with VR Payment.
 
 ## Installation, Usage and Configuration
 
-Installation, Usage and Configuration is explained in VRPayment's [online documentation](https://gateway.vr-payment.de/doc/salesforce-commerce-cloud/1.0.16/docs/en/documentation.html).
+Installation, Usage and Configuration is explained in VR Payment's [online documentation](https://gateway.vr-payment.de/doc/salesforce-commerce-cloud/1.0.16/docs/en/documentation.html).
 
 ## Support
 
-For further questions regarding the integration to VRPayment, contact the [VRPayment Support](https://www.vr-payment.de/hotline).
+For further questions regarding the integration to VR Payment, contact the [VR Payment Support](https://www.vr-payment.de/hotline).
 
 ## License
 
