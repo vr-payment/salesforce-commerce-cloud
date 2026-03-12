@@ -47,7 +47,7 @@ Congratulations! You are now integrated with VR Payment.
 
 ## Installation, Usage and Configuration
 
-Installation, Usage and Configuration is explained in VR Payment's [online documentation](https://gateway.vr-payment.de/doc/salesforce-commerce-cloud/1.0.16/docs/en/documentation.html).
+Installation, Usage and Configuration is explained in VR Payment's [online documentation](https://docs.plugin-documentation.vr-payment.de/vr-payment/salesforce-commerce-cloud/1.0.18/docs/en/documentation.html).
 
 ## Support
 
